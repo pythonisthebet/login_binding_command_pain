@@ -24,5 +24,9 @@ namespace login_binding_command_pain.view_models
             
         }
 
+        private bool checkiftrue(string p)
+        {
+            return true;
+        }
     }
 }
