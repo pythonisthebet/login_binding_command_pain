@@ -19,6 +19,8 @@
                 Margin="10"/>
             <Entry
                 x:Name="username"
+                Placeholder="=====&lt;  username here  &lt;====="
+                Text=""
                 />
             <Label 
                 Text="password"
@@ -29,20 +31,29 @@
             <Entry
                 x:Name="password"
                 Placeholder="=====&lt;  password here  &lt;====="
+                Text=""
                 />
 
             <Button
                 x:Name="loginButton"
                 Text="LOgin!"
                 Command ="{Binding clickCommand}"
+                CommandParameter="{Entry.username.Text,Entry.password.Text}"
                 />
 
-
-
-
-
-
-
+            <Border
+                IsVisible="{Binding border}"
+                BackgroundColor="{Binding border}"
+                <!--currentlly binding is inactive (you can hover over it to see)-->
+                
+                <Label
+                    Text="{Binding lable}"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Fill"
+                    BackgroundColor="LightCyan"
+                    Margin="10"/>
+            </Border>
+            
 
         </AbsoluteLayout>
     </VerticalStackLayout>
