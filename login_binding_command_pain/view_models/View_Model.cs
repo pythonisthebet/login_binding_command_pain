@@ -44,6 +44,7 @@ namespace login_binding_command_pain.view_models
         public void setvisbility(bool visibility)
         {
             border.IsVisible = visibility;
+            
         }
 
 
@@ -80,6 +81,7 @@ namespace login_binding_command_pain.view_models
                 Lable = "login failed";
                 setColor(Color.Parse("red"));
             }
+            OnPropertyChanged();
         }
     }
 }

@@ -5,11 +5,7 @@
              Title="Login">
     <VerticalStackLayout>
         
-        <AbsoluteLayout
-            AbsoluteLayout.LayoutFlags="PositionProportional"
-            AbsoluteLayout.LayoutBounds="0.2,0.8"
-            Margin="20"
-            >
+
 
             <Label 
                 Text="username"
@@ -17,15 +13,13 @@
                 HorizontalOptions="Fill"
                 BackgroundColor="LightCyan"
                 Margin="10"
-                AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.2,0"
+
                 />
             <Entry
                 x:Name="username"
                 Placeholder="=====&lt;  username here  &lt;====="
                 Text="{Binding Usern, Mode=TwoWay}"
-                AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.3,0"
+
                 />
             <Label 
                 Text="password"
@@ -33,30 +27,26 @@
                 HorizontalOptions="Fill"
                 BackgroundColor="LightCyan"
                 Margin="10"
-                AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.4,0"/>
+/>
             
             <Entry
                 x:Name="password"
                 Placeholder="=====&lt;  password here  &lt;====="
                 Text="{Binding Pass, Mode=TwoWay}"
-                AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.5,0"
+
                 />
 
             <Button
                 x:Name="loginButton"
                 Text="LOgin!"
                 Command ="{Binding clickCommand}"
-                AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.6,0,1,0.1"
+
                 />
 
             <Border
                 IsVisible="{Binding Border}"
                 BackgroundColor="{Binding Border}"
-                AbsoluteLayout.LayoutFlags="All"
-                AbsoluteLayout.LayoutBounds="0.7,0,1,0.3">
+>
                 <Label
                     Text="{Binding Lable}"
                     VerticalOptions="Center" 
@@ -66,6 +56,5 @@
             </Border>
             
 
-        </AbsoluteLayout>
     </VerticalStackLayout>
 </ContentPage>
