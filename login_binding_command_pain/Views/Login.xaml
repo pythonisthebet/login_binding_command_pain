@@ -44,7 +44,6 @@
             <Border
                 IsVisible="{Binding border}"
                 BackgroundColor="{Binding border}"
-                <!--currentlly binding is inactive (you can hover over it to see)-->
                 
                 <Label
                     Text="{Binding lable}"

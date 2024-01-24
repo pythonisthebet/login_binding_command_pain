@@ -8,14 +8,14 @@ public partial class Login : ContentPage
 {
 	public Login()
 	{
-		InitializeComponent();
+        InitializeComponent();
 
-		View_Model brain = new View_Model();
-		BindingContext = brain;
+        View_Model brain = new View_Model();
+        BindingContext = brain;
 
-		Login_Services service = new Login_Services();
-		
-	}
+        Login_Services service = new Login_Services();
+
+    }
 
 
 }
