@@ -9,11 +9,11 @@ public partial class Login : ContentPage
 	public Login()
 	{
         InitializeComponent();
-
-        View_Model brain = new View_Model();
+        Login_Services service = new Login_Services();
+        View_Model brain = new View_Model(service);
         BindingContext = brain;
 
-        Login_Services service = new Login_Services();
+        
 
     }
 

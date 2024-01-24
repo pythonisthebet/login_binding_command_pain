@@ -11,15 +11,30 @@ namespace login_binding_command_pain.view_models
 {
     public class View_Model : INotifyPropertyChanged
     {
+        Login_Services service;
+
         private Border border;
 
         private string lable;
+
+        private string usern;
+
+        private string pass;
 
         public string Lable
         {
             get { return lable; }
             set { lable = value; }
         }
+
+        public string Usern
+        { get { return usern; } set {  usern = value; } }
+
+        public string Pass
+        { get { return pass; } set {  pass = value; } }
+
+        public Border Border
+        { get { return border; } set {  border = value; } }
 
         public void setColor(Color c)
         {
@@ -41,21 +56,30 @@ namespace login_binding_command_pain.view_models
 
         public Command clickCommand { get; set; }
 
-        public View_Model()
+        public View_Model(Login_Services service)
         {
-            clickCommand = new Command<string[] >((p) => checkiftrue(p));
+            clickCommand = new Command<string[]>((p) => checkiftrue());
             border = new Border();
+            lable = "";
+            usern = "";
+            pass = "";
+            this.service = service;
         }
 
-        private bool checkiftrue(string[] p)
+        private void checkiftrue()
         {
-            User user = new User(p[0], p[1]);
-            if (Login_Services.inlist(user))
+            User user = new User(usern,pass);
+            setvisbility(true);
+            if (service.inlist(user))
             {
-                return true;
+                Lable = "login succesful!!!";
+                setColor(Color.Parse("LawnGreen"));
             }
-
-            return false;
+            else
+            {
+                Lable = "login failed";
+                setColor(Color.Parse("red"));
+            }
         }
     }
 }
