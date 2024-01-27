@@ -38,7 +38,7 @@
 
             <Button
                 x:Name="loginButton"
-                Text="LOgin!"
+                Text="Login!"
                 Command ="{Binding clickCommand}"
 
                 />
@@ -51,6 +51,7 @@
                     Text="{Binding Lable}"
                     VerticalOptions="Center" 
                     HorizontalOptions="Fill"
+                    Margin="20"
                     />
             </Border>
             
