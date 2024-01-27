@@ -13,7 +13,9 @@ namespace login_binding_command_pain.view_models
     {
         Login_Services service;
 
-        private Border border;
+        private Color color;
+
+        private bool visible;
 
         private string lable;
 
@@ -24,7 +26,12 @@ namespace login_binding_command_pain.view_models
         public string Lable
         {
             get { return lable; }
-            set { lable = value; }
+            set
+            {
+                OnPropertyChanged();
+
+                lable = value; }
+
         }
 
         public string Usern
@@ -33,19 +40,18 @@ namespace login_binding_command_pain.view_models
         public string Pass
         { get { return pass; } set {  pass = value; } }
 
-        public Border Border
-        { get { return border; } set {  border = value; } }
+        public bool Visible
+        { get { return visible; } set
+            {
+                OnPropertyChanged();
+                visible = value; } }
 
-        public void setColor(Color c)
-        {
-            border.BackgroundColor = c;
-        }
+        public Color Color
+        { get { return color; } set
+            {
+                OnPropertyChanged();
+                color = value; } }
 
-        public void setvisbility(bool visibility)
-        {
-            border.IsVisible = visibility;
-            
-        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -60,7 +66,8 @@ namespace login_binding_command_pain.view_models
         public View_Model(Login_Services service)
         {
             clickCommand = new Command<string[]>((p) => checkiftrue());
-            border = new Border();
+            color= new Color();
+            visible= false;
             lable = "";
             usern = "";
             pass = "";
@@ -69,19 +76,23 @@ namespace login_binding_command_pain.view_models
 
         private void checkiftrue()
         {
-            User user = new User(usern,pass);
-            setvisbility(true);
-            if (service.inlist(user))
+            for (int i = 0; i < 2; i++)
             {
-                Lable = "login succesful!!!";
-                setColor(Color.Parse("LawnGreen"));
+                User user = new User(usern, pass);
+                Visible = true;
+                if (service.inlist(user))
+                {
+                    Lable = "login succesful!!!";
+                    Color = Color.Parse("LawnGreen");
+                }
+                else
+                {
+                    Lable = "login failed";
+                    Color = Color.Parse("red");
+                }
+                clickCommand.ChangeCanExecute();
             }
-            else
-            {
-                Lable = "login failed";
-                setColor(Color.Parse("red"));
-            }
-            OnPropertyChanged();
+            
         }
     }
 }

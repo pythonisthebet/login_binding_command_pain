@@ -18,7 +18,7 @@ namespace login_binding_command_pain.Services
         }
         public Login_Services() 
         {
-            userlist = new List<User>
+            Userlist = new List<User>
             {
                 new User("adam", "7h7hh"),
                 new User("shahar", "69420"),
@@ -35,7 +35,7 @@ namespace login_binding_command_pain.Services
 
         public bool inlist(User user)
         {
-            if (Userlist.Contains(user)) return true;
+            if (Userlist.Exists(u => u.Username == user.Username&&u.Password==user.Password)) return true;
             else return false;
         }
 

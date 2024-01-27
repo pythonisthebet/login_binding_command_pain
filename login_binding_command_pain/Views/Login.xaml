@@ -44,14 +44,13 @@
                 />
 
             <Border
-                IsVisible="{Binding Border}"
-                BackgroundColor="{Binding Border}"
+                IsVisible="{Binding Visible}"
+                BackgroundColor="{Binding Color}"
 >
                 <Label
                     Text="{Binding Lable}"
                     VerticalOptions="Center" 
                     HorizontalOptions="Fill"
-                    Margin="10"
                     />
             </Border>
             
