@@ -78,7 +78,7 @@ namespace login_binding_command_pain.view_models
         {
             for (int i = 0; i < 2; i++)
             {
-                User user = new User(usern, pass);
+                User user = new(usern, pass);
                 Visible = true;
                 if (service.inlist(user))
                 {
