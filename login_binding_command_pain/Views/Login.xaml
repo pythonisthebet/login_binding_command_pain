@@ -37,13 +37,23 @@
                 />
 
             <Button
-                x:Name="loginButton"
-                Text="Login!"
+                x:Name="clearbutton"
+                Text="Clear!"
                 Command ="{Binding clickCommand}"
+                CommandParameter="clear"
 
                 />
+            <Button
+                x:Name="Loginbotton"
+                Text="Login!"
+                Command ="{Binding clickCommand}"
+                CommandParameter="Login"
 
-            <Border
+            />
+
+
+
+        <Border
                 IsVisible="{Binding Visible}"
                 BackgroundColor="{Binding Color}"
 >

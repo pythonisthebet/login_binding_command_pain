@@ -37,10 +37,10 @@ namespace login_binding_command_pain.view_models
         }
 
         public string Usern
-        { get { return usern; } set {  usern = value; } }
+        { get { return usern; } set {  usern = value; OnPropertyChanged(); } }
 
         public string Pass
-        { get { return pass; } set {  pass = value; } }
+        { get { return pass; } set {  pass = value; OnPropertyChanged(); } }
 
         public bool Visible
         { get { return visible; } set
@@ -71,7 +71,7 @@ namespace login_binding_command_pain.view_models
 
         public View_Model(Login_Services service)
         {
-            clickCommand = new Command<string[]>((p) => checkiftrue());
+            clickCommand = new Command<string>((p) => checkiftrue(p));
             color= new Color();
             visible= false;
             lable = "";
@@ -80,15 +80,22 @@ namespace login_binding_command_pain.view_models
             this.service = service;
         }
 
-        private void checkiftrue()
+        private void checkiftrue(string p)
         {
-
+            if (p == "clear")
+            {
+                Usern = "";
+                Pass = "";
+                return;
+            }
             User user = new(usern, pass);
             Visible = true;
             if (service.inlist(user))
             {
                 Lable = "login succesful!!!";
                 Color = Color.Parse("LawnGreen");
+                Usern = "";
+                Pass = "";
             }
             else
             {
