@@ -86,6 +86,7 @@ namespace login_binding_command_pain.view_models
             {
                 Usern = "";
                 Pass = "";
+                Visible = false;
                 return;
             }
             User user = new(usern, pass);
