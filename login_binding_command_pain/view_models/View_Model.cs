@@ -28,9 +28,11 @@ namespace login_binding_command_pain.view_models
             get { return lable; }
             set
             {
-                OnPropertyChanged();
+                
 
-                lable = value; }
+                lable = value;
+                OnPropertyChanged();
+            }
 
         }
 
@@ -43,14 +45,18 @@ namespace login_binding_command_pain.view_models
         public bool Visible
         { get { return visible; } set
             {
+                
+                visible = value;
                 OnPropertyChanged();
-                visible = value; } }
+            } }
 
         public Color Color
         { get { return color; } set
             {
+                
+                color = value;
                 OnPropertyChanged();
-                color = value; } }
+            } }
 
 
 
@@ -76,21 +82,18 @@ namespace login_binding_command_pain.view_models
 
         private void checkiftrue()
         {
-            for (int i = 0; i < 2; i++)
+
+            User user = new(usern, pass);
+            Visible = true;
+            if (service.inlist(user))
             {
-                User user = new(usern, pass);
-                Visible = true;
-                if (service.inlist(user))
-                {
-                    Lable = "login succesful!!!";
-                    Color = Color.Parse("LawnGreen");
-                }
-                else
-                {
-                    Lable = "login failed";
-                    Color = Color.Parse("red");
-                }
-                clickCommand.ChangeCanExecute();
+                Lable = "login succesful!!!";
+                Color = Color.Parse("LawnGreen");
+            }
+            else
+            {
+                Lable = "login failed";
+                Color = Color.Parse("red");
             }
             
         }
